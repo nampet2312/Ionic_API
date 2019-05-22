@@ -1,0 +1,57 @@
+<ion-header>
+    <ion-toolbar color="secondary">
+      <ion-title>
+        personal Information
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  
+  
+  <ion-content *ngFor="let item of dataList">
+  
+      <form novalidate #myForm="ngForm" (ngSubmit)="edit(myForm.value)">
+      <div padding-horizontal>
+        <br>
+          <label class="center"><h1>แก้ไขข้อมูล</h1></label><br>
+        <ion-item>
+          <ion-label position="stacked">
+            <h1>ชื่อ :</h1>
+          </ion-label>
+          <ion-input type="text" ngModel name="name" [(ngModel)]="item.name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">
+            <h1>นามสกุล :</h1>
+          </ion-label>
+          <ion-input type="text" ngModel name="lname" [(ngModel)]="item.lname"></ion-input>
+        </ion-item>
+      </div>
+  
+      <div padding-horizontal>
+        <ion-list >
+          <ion-radio-group  [(ngModel)]="item.gender" ngModel name="gender">
+            <ion-list-header>
+              <ion-label>เพศ :</ion-label>
+            </ion-list-header>
+  
+            <ion-item>
+              <ion-label>ชาย</ion-label>
+              <ion-radio slot="start" value="1" checked></ion-radio>
+            </ion-item>
+  
+            <ion-item>
+              <ion-label>หญิง</ion-label>
+              <ion-radio slot="start" value="2"></ion-radio>
+            </ion-item>
+  
+  
+          </ion-radio-group>
+        </ion-list>
+      </div>
+  
+      <div padding-horizontal class="center">
+        <ion-button shape="round"  size="small" color="success" type="submit" ><ion-icon name="save"></ion-icon>บันทึก</ion-button>
+      </div>
+    </form>
+  </ion-content>

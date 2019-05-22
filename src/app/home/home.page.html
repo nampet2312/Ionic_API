@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title>
+      personal Information
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br>
+  <div padding-horizontal >
+
+    <ion-button  (click)="Add()"  shape="round" size="small" color="success" type="submit" >
+      <ion-icon  name="add-circle"></ion-icon>เพิ่มข้อมูล
+    </ion-button>
+  </div>
+
+  <ion-card *ngFor="let item of dataList" color="light">
+    <ion-card-content >
+
+      ชื่อ: {{item.name}}<br>
+      นามสกุล: {{item.lname}}<br>
+      เพศ: {{item.gender == '1' ? 'ชาย': 'หญิง'}}
+
+      <ion-grid>
+        <ion-row>
+          <ion-col size="5">
+            <ion-button float-left shape="round" (click)="edit(item.id)" size="small" type="submit">
+              <ion-icon name="create"></ion-icon>แก้ไข
+            </ion-button>
+          </ion-col>
+          <ion-col>
+            <ion-button shape="round" (click)="Delete(item.id)" size="small" color="danger" type="submit">
+              <ion-icon name="pint"></ion-icon>ลบ
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
